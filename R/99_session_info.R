@@ -1,0 +1,6 @@
+project_root <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
+session_file <- file.path(project_root, "session-info.txt")
+session_lines <- capture.output(sessionInfo())
+writeLines(session_lines, session_file, useBytes = TRUE)
+cat(paste(session_lines, collapse = "\n"), "\n")
+message("Session information written to: ", session_file)
